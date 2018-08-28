@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+from prettytable import PrettyTable
 
 def main():
-
 	#Get url address of boxofficemojo.com
 	res = requests.get('http://www.boxofficemojo.com/alltime/domestic.htm')
 	soup = BeautifulSoup(res.text, 'lxml')
