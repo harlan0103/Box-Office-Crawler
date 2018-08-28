@@ -14,3 +14,6 @@ A tool to get box office information from boxofficemojo.com
 -d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All time domestic top 100 boxoffice<br/>
 -o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All time worldwide top 100 boxoffice<br/>
 -w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Most recent weekend boxoffice<br/>
+
+## Example
+![Example](https://github.com/harlan0103/Box-office-request/blob/master/img/worldWideGrossExample.png)
