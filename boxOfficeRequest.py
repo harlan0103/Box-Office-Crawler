@@ -13,10 +13,7 @@ from bs4 import BeautifulSoup
 from docopt import docopt
 from prettytable import PrettyTable
 
-
-def main():
-	arguments = docopt(__doc__)
-	print(arguments)
+def domestic():
 	#Get url address of boxofficemojo.com
 	res = requests.get('http://www.boxofficemojo.com/alltime/domestic.htm')
 	soup = BeautifulSoup(res.text, 'lxml')
@@ -56,6 +53,17 @@ def main():
 		ptable.add_row([rank[i],title[i],domesticGross[i],year[i]])
 
 	print(ptable)
+
+def main():
+	arguments = docopt(__doc__)
+
+	#Get arguments information and call method based on argument
+	if arguments['-d'] is True:
+		domestic()
+	elif arguments['-o'] is True:
+		print("worldwide")
+	elif arguments['-w'] is True:
+		print("weekend")
 
 if __name__ == "__main__":	
 	main()	
