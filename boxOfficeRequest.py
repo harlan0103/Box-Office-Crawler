@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from prettytable import PrettyTable
 
 def main():
 	#Get url address of boxofficemojo.com
@@ -18,7 +17,6 @@ def main():
 	#5 Year
 	"""	
 	title = []
-	studio = []
 	domesticGross = []
 	year = []
 	rank = []
@@ -31,8 +29,6 @@ def main():
 			rank.append(i.get_text())
 		elif movieInfo.index(i)%5 is 1:
 			title.append(i.get_text())
-		elif movieInfo.index(i)%5 is 2:
-			studio.append(i.get_text())
 		elif movieInfo.index(i)%5 is 3:
 			domesticGross.append(i.get_text())
 		elif movieInfo.index(i)%5 is 4:
@@ -40,7 +36,7 @@ def main():
 
 	#Iterate each movie item
 	for i in range(1,101):
-		print("{}\t {}\t {}\t {}\t {}\n".format(rank[i],title[i],studio[i],domesticGross[i],year[i]))
+		print("{}\t {}\t {}\t {}\n".format(rank[i],title[i],domesticGross[i],year[i]))
 
 	print("------------Data query done------------")
 
