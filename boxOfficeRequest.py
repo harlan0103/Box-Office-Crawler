@@ -1,7 +1,22 @@
+"""
+Usage:
+	boxOfficeRequest [-dow]
+
+Options:
+	-d 		All time domestic box-office
+	-o 		All time worldwide box-office
+	-w		Weekend box-office
+"""
+
 import requests
 from bs4 import BeautifulSoup
+from docopt import docopt
+from prettytable import PrettyTable
+
 
 def main():
+	arguments = docopt(__doc__)
+	print(arguments)
 	#Get url address of boxofficemojo.com
 	res = requests.get('http://www.boxofficemojo.com/alltime/domestic.htm')
 	soup = BeautifulSoup(res.text, 'lxml')
@@ -34,11 +49,13 @@ def main():
 		elif movieInfo.index(i)%5 is 4:
 			year.append(i.get_text())
 
-	#Iterate each movie item
+	#Create table with field name
+	ptable = PrettyTable(["Rank", "Movie Name", "Lifetime Gross", "Year"])
+	#Iterate each movie item and add to the table
 	for i in range(1,101):
-		print("{}\t {}\t {}\t {}\n".format(rank[i],title[i],domesticGross[i],year[i]))
+		ptable.add_row([rank[i],title[i],domesticGross[i],year[i]])
 
-	print("------------Data query done------------")
+	print(ptable)
 
 if __name__ == "__main__":	
 	main()	
