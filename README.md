@@ -1,5 +1,5 @@
 # Weekend-Movie-Box-Office-Request
-A tool to get box office information from boxofficemojo.com
+<b>A tool to get box office information</b>
 
 ## Install tools
 ```
